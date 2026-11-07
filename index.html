@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TG Bots — Заказ Telegram-ботов</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0e1621;
+    color: #e6e6e6;
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(135deg, #17212b 0%, #0e1621 100%);
+    border-bottom: 2px solid #2b5278;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #64b5ef;
+  }
+  header .logo span { color: #fff; }
+  header nav a {
+    color: #b8c7d3;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: color .2s;
+  }
+  header nav a:hover { color: #64b5ef; }
+
+  .hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: radial-gradient(circle at top, #1c2e3f 0%, #0e1621 70%);
+  }
+  .hero h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .hero h1 span { color: #64b5ef; }
+  .hero p {
+    font-size: 19px;
+    color: #9fb1c1;
+    max-width: 650px;
+    margin: 0 auto 35px;
+  }
+  .btn {
+    display: inline-block;
+    background: #2b5278;
+    color: #fff;
+    padding: 15px 38px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: background .2s, transform .1s;
+  }
+  .btn:hover { background: #3a6a9a; transform: translateY(-2px); }
+
+  section { padding: 70px 40px; max-width: 1150px; margin: 0 auto; }
+  section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 45px;
+    color: #fff;
+  }
+  section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #64b5ef;
+    margin: 14px auto 0;
+    border-radius: 2px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  .card {
+    background: #17212b;
+    border: 1px solid #232f3b;
+    border-radius: 14px;
+    padding: 30px 25px;
+    transition: transform .2s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-6px); border-color: #2b5278; }
+  .card .icon { font-size: 36px; margin-bottom: 15px; }
+  .card h3 { color: #64b5ef; font-size: 20px; margin-bottom: 10px; }
+  .card p { color: #9fb1c1; font-size: 15px; }
+  .card .price {
+    display: inline-block;
+    margin-top: 18px;
+    background: #2b5278;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    text-align: center;
+  }
+  .feature .num {
+    font-size: 40px;
+    font-weight: bold;
+    color: #64b5ef;
+  }
+  .feature p { color: #9fb1c1; }
+
+  .contact {
+    text-align: center;
+    background: #17212b;
+    border: 1px solid #232f3b;
+    border-radius: 16px;
+    padding: 50px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .contact h2 { margin-bottom: 20px; }
+  .contact p { color: #9fb1c1; font-size: 17px; margin-bottom: 25px; }
+  .contact .tg {
+    display: inline-block;
+    background: #2b5278;
+    color: #fff;
+    padding: 14px 34px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background .2s;
+  }
+  .contact .tg:hover { background: #3a6a9a; }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    color: #6b7d8d;
+    font-size: 14px;
+    border-top: 1px solid #17212b;
+    margin-top: 40px;
+  }
+  footer a { color: #64b5ef; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 30px; }
+    header { padding: 15px 20px; }
+    header nav a { margin-left: 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">TG<span>Bots</span></div>
+  <nav>
+    <a href="#services">Услуги</a>
+    <a href="#why">Почему я</a>
+    <a href="#contact">Заказать</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Создание <span>Telegram-ботов</span> под заказ</h1>
+  <p>Разрабатываю ботов любой сложности: от простых информационных до магазинов, автоответчиков, админ-панелей и интеграций с API.</p>
+  <a href="#contact" class="btn">Заказать бота</a>
+</section>
+
+<section id="services">
+  <h2>Что я делаю</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🤖</div>
+      <h3>Информационные боты</h3>
+      <p>Бот-визитка, каталог, ответы на частые вопросы, отправка материалов.</p>
+      <div class="price">от 1500 ₽</div>
+    </div>
+    <div class="card">
+      <div class="icon">🛒</div>
+      <h3>Боты-магазины</h3>
+      <p>Продажа товаров и услуг прямо в Telegram: корзина, оплата, уведомления.</p>
+      <div class="price">от 3500 ₽</div>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>Автоматизация</h3>
+      <p>Автопостинг, рассылки, модерация чатов, приём заявок и заказов.</p>
+      <div class="price">от 2500 ₽</div>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <h3>Интеграции с API</h3>
+      <p>Подключение к вашим сервисам, базам данных, CRM и платёжным системам.</p>
+      <div class="price">по договорённости</div>
+    </div>
+    <div class="card">
+      <div class="icon">🛠</div>
+      <h3>Доработка ботов</h3>
+      <p>Правки, исправление багов, добавление новых функций в существующего бота.</p>
+      <div class="price">от 1000 ₽</div>
+    </div>
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Бот под ключ</h3>
+      <p>Полный цикл: идея → разработка → тесты → запуск и поддержка.</p>
+      <div class="price">индивидуально</div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <h2>Почему стоит заказать у меня</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="num">1–3</div>
+      <p>дня — средний срок разработки простого бота</p>
+    </div>
+    <div class="feature">
+      <div class="num">100%</div>
+      <p>работа под ваши задачи и бюджет</p>
+    </div>
+    <div class="feature">
+      <div class="num">24/7</div>
+      <p>бот работает стабильно и без выходных</p>
+    </div>
+    <div class="feature">
+      <div class="num">✔</div>
+      <p>поддержка после запуска и инструкция по использованию</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h2>Остались вопросы?</h2>
+    <p>По всем вопросам обращайтесь в Telegram — отвечу быстро и подробно.</p>
+    <a href="https://t.me/ggopsik" class="tg" target="_blank">✈ @ggopsik</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 TG Bots — разработка Telegram-ботов. По всем вопросам: <a href="https://t.me/ggopsik" target="_blank">@ggopsik</a>
+</footer>
+
+</body>
+</html>
